@@ -5,33 +5,38 @@ import xlrd
 import pymysql
 import time
 import os
-import config
+# import config
+#
+# # ------数据库配置
+# host = config.host # 数据库地址
+# database = config.database # 数据库名称
+# username = config.username # 数据库用户名
+# password = config.password # 数据库密码
 
-# ------数据库配置
-host = config.host # 数据库地址
-database = config.database # 数据库名称
-username = config.username # 数据库用户名
-password = config.password # 数据库密码
+host = "localhost" # 数据库地址
+database = "excel" # 数据库名称
+username = "root" # 数据库用户名
+password = "root" # 数据库密码
 
 # ------参数定义
 # 需要导入的文件地址
 # file = "taoke0425.xls"
-file = raw_input('请输入你要导入的excel文件：')
+file = input('请输入你要导入的excel文件：')
 
 # 文件校验
 ext = os.path.splitext(file)[1]
 if(ext not in [".xls",".xlsx"]):
-    print "只能选择excel文件"
+    print("只能选择excel文件")
     exit()
 
 if(os.path.isfile(file)!=True):
-    print "选择的文件不存在"
+    print("选择的文件不存在")
     exit()
 
 # 程序执行
 t1 = time.time()
 print("开始入库")
-db = pymysql.connect(host, username, password, database, charset='utf8')
+db = pymysql.connect(host=host,port=3306, user=username, passwd=password, db=database, charset='utf8')
 cur = db.cursor()
 ex = xlrd.open_workbook(file)
 sheet = ex.sheet_by_index(0)
