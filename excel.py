@@ -1,5 +1,5 @@
 # coding:utf-8
-# 基于python2的 简单的单表excel入库脚本
+# 基于python3的 简单的单表excel入库脚本
 # author weiming 2021.11
 import math
 
