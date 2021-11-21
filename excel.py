@@ -80,7 +80,7 @@ for num in range(0, tableNum):
     create += "`id` int(11) NOT NULL AUTO_INCREMENT,"
     for index, item in enumerate(excelTitle[num * maxFieldNum:(num + 1) * maxFieldNum]):
         index = index + num * maxFieldNum
-        create += "`" + excelAlpTitle[
+        create += "`e_" + excelAlpTitle[
             index] + "` varchar("+config.fieldlen+") COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '" + item + "',"
     create += "PRIMARY KEY (`id`)"
     create += ") ENGINE=MyISAM AUTO_INCREMENT=70001 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;"
@@ -94,8 +94,8 @@ for num in range(0, tableNum):
         fields = values = ""
         for index, item in enumerate(excelTitle[num * maxFieldNum:(num + 1) * maxFieldNum]):
             index = index + num * maxFieldNum
-            data = db.escape_string(sheet.row_values(row_num, 0)[index])
-            fields = fields + "," + excelAlpTitle[index]
+            data = db.escape_string(str(sheet.row_values(row_num, 0)[index]))
+            fields = fields + ",e_" + excelAlpTitle[index]
             values = values + ',"' + data + '"'
         # 截取字符串，丢弃第一个字符
         fields = fields[1:]
