@@ -47,7 +47,7 @@ for col_num in range(cols):
     excelTitle.append(title)
 
 # 需要写入的数据表名称(使用文件名)
-table = os.path.splitext(file)[0]
+table = os.path.splitext(os.path.basename(file))[0]
 
 # 生成excel表头数组
 alpArr = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V",

@@ -7,6 +7,8 @@
 在config.ini中修改数据库配置
 excel.py为运行主程序
 
+dist文件夹包含可直接运行的exe文件，可单独拿出来使用（需按README.txt配置数据库）
+
 tip：
 
 1.下载项目后需要拉取公共依赖包
