@@ -129,7 +129,7 @@ def run():
     excelAlpTitle = alpArr
     for x in range(26):
         for y in range(26):
-            if (len(excelTitle) < 100):
+            if (len(excelTitle) < 1000):
                 excelAlpTitle.append(alpArr[x] + alpArr[y])
 
     # 根据字段长度，需要做拆分表处理
